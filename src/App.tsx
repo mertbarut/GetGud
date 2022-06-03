@@ -2,13 +2,17 @@ import './App.css'
 import './index.css'
 import { useSelector } from 'react-redux'
 import NavBar from './components/NavBar'
-import AbsenceList from './components/RepositoriesList'
 import Pagination from './components/Pagination'
 import { State } from './state'
 import SideBar from './components/SideBar'
+import Repositories from './components/Repositories'
+import RepositoryBody from './components/Main'
+import { useState } from 'react'
 
 function App() {
   const totalRepositories = useSelector((state: State) => state.totalRepositories)
+
+  //console.log(process.env.REACT_APP_TOKEN)
 
   return (
     <div
@@ -26,7 +30,7 @@ function App() {
         <div
           className='basis-full'
         >
-          <AbsenceList />
+          <RepositoryBody />
           {
             totalRepositories !== 0 &&
             <Pagination

@@ -5,15 +5,38 @@ import App from './App'
 import reportWebVitals from './reportWebVitals'
 import { Provider } from 'react-redux'
 import { store } from './state/index'
+import { ApolloClient, ApolloProvider, HttpLink, InMemoryCache } from '@apollo/client'
+import { setContext } from '@apollo/client/link/context'
+
+const token = process.env.REACT_APP_TOKEN
+
+const authLink = setContext((_, { headers }) => {
+  return {
+    headers: {
+      ...headers,
+      authorization: token ? `Token ${token}` : null,
+    }
+  }
+})
+
+const client = new ApolloClient({
+  link: authLink.concat(
+    new HttpLink({ uri: 'https://api.github.com/graphql' })
+  ),
+  cache: new InMemoryCache(),
+})
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 )
 root.render(
   <React.StrictMode>
-    <Provider store={store}>
-      <App />
-    </Provider>
+    <ApolloProvider client={client}>
+      <Provider store={store}>
+        <App />
+      </Provider>
+    </ApolloProvider>
+
   </React.StrictMode>
 )
 

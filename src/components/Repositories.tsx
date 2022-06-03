@@ -2,25 +2,15 @@ import { bindActionCreators } from '@reduxjs/toolkit'
 import { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { actionCreators, State } from '../state'
-import IAbsenceData from '../types/absence.type'
-import IMemberData from '../types/member.type'
 import Repository from './Repository'
 import EmptyListNotification from './EmptyListNotification'
 
 export type RepositoriesProps = {
-  absences: Array<IAbsenceData>,
-  members: Array<IMemberData>,
-  queryType: string,
-  queryStartDate: Date,
-  queryEndDate: Date
+  repositories: Array<any>
 }
 
 const Repositories = ({
-  absences,
-  members,
-  queryType,
-  queryStartDate,
-  queryEndDate
+  repositories
 }: RepositoriesProps) => {
   const currentPage = useSelector((state: State) => state.page)
   const totalRepositories = useSelector((state: State) => state.totalRepositories)
@@ -29,18 +19,17 @@ const Repositories = ({
     setTotalRepositories
   } = bindActionCreators(actionCreators, dispatch)
 
+  const querySearch = '' // create a state here
   useEffect(() => {
-    setTotalRepositories(absences
-      .filter((absence) => (
-        absence.type.toLowerCase().includes(queryType.toLowerCase()) &&
-        new Date(absence.startDate) >= queryStartDate &&
-        new Date(absence.endDate) <= queryEndDate
+    setTotalRepositories(repositories
+      .filter((repository) => (
+        repository.name.toLowerCase().includes(querySearch.toLowerCase())
       ))
       .length)
-  }, [queryType, queryStartDate, queryEndDate])
+  }, [])
 
+  console.log(repositories)
   return (
-
     <div
       className='flex justify-center min-h-[530px]'
     >
@@ -50,24 +39,18 @@ const Repositories = ({
           <EmptyListNotification />
           :
           <ul>
-            {absences
-              .sort((absence1, absence2) => (
-                new Date(absence1.startDate).getTime() - new Date(absence2.startDate).getTime()
-              ))
-              .filter((absence) => (
-                absence.type.toLowerCase().includes(queryType.toLowerCase()) &&
-                new Date(absence.startDate) >= queryStartDate &&
-                new Date(absence.endDate) <= queryEndDate
+            {repositories
+              .filter((repository) => (
+                repository.name.toLowerCase().includes(querySearch.toLowerCase())
               ))
               .slice((currentPage - 1) * 10, currentPage * 10)
-              .map((absence) => (
+              .map((repository) => (
                 <li
-                  key={absence.id}
+                  key={repository.id}
                   className='text-gray-700 font-semibold text-xl mb-0.5 border rounded-lg py-2'
                 >
                   <Repository
-                    absence={absence}
-                    member={members.filter((member) => member.userId === absence.userId)[0]}
+                    repository={repository}
                   />
                 </li>
               ))}

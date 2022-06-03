@@ -2,21 +2,32 @@ import React from 'react'
 import StatTable from './StatTable'
 import IRepositoryData from '../types/absence.type'
 import IMemberData from '../types/member.type'
+import { Dictionary } from '@reduxjs/toolkit'
 
-export type RepositoryProps = {
-  absence: IRepositoryData,
-  member: IMemberData
+type Language = {
+  name: string,
+  color: string
 }
 
-const Repository = ({ absence, member }: RepositoryProps) => {
+type Repository = {
+  description: string,
+  id: string,
+  name: string,
+  url: string,
+  languages: any
+}
 
+export type RepositoryProps = {
+  repository: Repository,
+}
+
+const Repository = ({ repository }: RepositoryProps) => {
   return (
     <div
-      className="flex justify-center h-8"
+      className="flex justify-center h-32"
     >
       <StatTable
-        absence={absence}
-        member={member}
+        repository={repository}
       />
     </div>
   )
