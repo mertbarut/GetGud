@@ -1,6 +1,6 @@
 import { ActionType } from '../action-types'
 import { Dispatch } from 'redux'
-import { PageChangeAction, totalRepositoriesChangeAction, DisplayedUserChangeAction, DisplayedAbsenceChangeAction } from '../actions'
+import { PageChangeAction, totalRepositoriesChangeAction, DisplayedUserChangeAction, DisplayedAbsenceChangeAction, SearchQueryChangeAction } from '../actions'
 import User from '../../types/user.type'
 
 export const goToNextPage = (amount: number) => {
@@ -52,6 +52,15 @@ export const setDisplayedUser = (user: User) => {
     dispatch({
       type: ActionType.SET_NEW_USER,
       payload: user
+    })
+  }
+}
+
+export const setSearchQuery = (query: string) => {
+  return (dispatch: Dispatch<SearchQueryChangeAction>) => {
+    dispatch({
+      type: ActionType.SET_SEARCH_QUERY,
+      payload: query
     })
   }
 }

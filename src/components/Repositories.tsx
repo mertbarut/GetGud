@@ -16,19 +16,21 @@ const Repositories = ({
 }: RepositoriesProps) => {
   const currentPage = useSelector((state: State) => state.page)
   const totalRepositories = useSelector((state: State) => state.totalRepositories)
+  const searchQuery = useSelector((state: State) => state.searchQuery)
+
   const dispatch = useDispatch()
   const {
-    setTotalRepositories
+    setTotalRepositories,
+    goToFirstPage
   } = bindActionCreators(actionCreators, dispatch)
 
-  const querySearch = '' // create a state here
   useEffect(() => {
     setTotalRepositories(repositories
       .filter((repository) => (
-        repository.name.toLowerCase().includes(querySearch.toLowerCase())
+        repository.name.toLowerCase().includes(searchQuery.toLowerCase())
       ))
       .length)
-  }, [])
+  }, [searchQuery])
 
   console.log(repositories)
   return (
@@ -43,7 +45,7 @@ const Repositories = ({
           <ul>
             {repositories
               .filter((repository) => (
-                repository.name.toLowerCase().includes(querySearch.toLowerCase())
+                repository.name.toLowerCase().includes(searchQuery.toLowerCase())
               ))
               .slice((currentPage - 1) * itemsPerPage, currentPage * itemsPerPage)
               .map((repository) => (

@@ -35,6 +35,11 @@ interface SetDisplayedUserAction {
   payload: User
 }
 
+interface setSearchQuery {
+  type: ActionType.SET_SEARCH_QUERY,
+  payload: string
+}
+
 export type PageChangeAction = NextPageAction | PreviousPageAction | FirstPageAction
 
 export type DisplayedAbsenceChangeAction = SetDisplayedAbsenceAction | DefaultDisplayedAbsenceAction
@@ -42,3 +47,5 @@ export type DisplayedAbsenceChangeAction = SetDisplayedAbsenceAction | DefaultDi
 export type totalRepositoriesChangeAction = SetTotalRepositoriesAction
 
 export type DisplayedUserChangeAction = SetDisplayedUserAction
+
+export type SearchQueryChangeAction = setSearchQuery

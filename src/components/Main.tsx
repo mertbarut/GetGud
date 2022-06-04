@@ -16,7 +16,7 @@ export interface MainPropTypes {
 
 const ALL_REPOSITORIES = gql`
 query {
-  user(login: "mertbarut") {
+  user(login: "ionut1195") {
     avatarUrl
     bio
     name
@@ -94,7 +94,7 @@ function Main( { itemsPerPage } : MainPropTypes ) {
     <div
       className='flex-col justify-center pt-4 px-1'
     >
-      {/* <SearchBar /> */}
+      <SearchBar />
       <Repositories
         repositories={repositories}
         itemsPerPage={itemsPerPage}
