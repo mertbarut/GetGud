@@ -1,6 +1,7 @@
 import { ActionType } from '../action-types'
 import { Dispatch } from 'redux'
-import { PageChangeAction, DisplayedAbsenceChangeAction, totalRepositoriesChangeAction } from '../actions'
+import { PageChangeAction, totalRepositoriesChangeAction, DisplayedUserChangeAction, DisplayedAbsenceChangeAction } from '../actions'
+import User from '../../types/user.type'
 
 export const goToNextPage = (amount: number) => {
   return (dispatch: Dispatch<PageChangeAction>) => {
@@ -42,6 +43,15 @@ export const setTotalRepositories = (total: number) => {
     dispatch({
       type: ActionType.SET_TOTAL_REPOSITORIES,
       payload: total
+    })
+  }
+}
+
+export const setDisplayedUser = (user: User) => {
+  return (dispatch: Dispatch<DisplayedUserChangeAction>) => {
+    dispatch({
+      type: ActionType.SET_NEW_USER,
+      payload: user
     })
   }
 }

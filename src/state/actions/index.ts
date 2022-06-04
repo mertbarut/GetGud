@@ -1,3 +1,4 @@
+import User from '../../types/user.type'
 import { ActionType } from '../action-types'
 
 interface NextPageAction {
@@ -29,8 +30,15 @@ interface SetTotalRepositoriesAction {
   payload: number
 }
 
+interface SetDisplayedUserAction {
+  type: ActionType.SET_NEW_USER,
+  payload: User
+}
+
 export type PageChangeAction = NextPageAction | PreviousPageAction | FirstPageAction
 
 export type DisplayedAbsenceChangeAction = SetDisplayedAbsenceAction | DefaultDisplayedAbsenceAction
 
 export type totalRepositoriesChangeAction = SetTotalRepositoriesAction
+
+export type DisplayedUserChangeAction = SetDisplayedUserAction

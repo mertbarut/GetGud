@@ -24,7 +24,7 @@ export type RepositoryProps = {
 const Repository = ({ repository }: RepositoryProps) => {
   return (
     <div
-      className="flex justify-center h-32"
+      className="flex justify-center h-44"
     >
       <StatTable
         repository={repository}

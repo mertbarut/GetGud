@@ -3,11 +3,11 @@ import { bindActionCreators } from 'redux'
 import { actionCreators, State } from '../state'
 
 type PaginationProps = {
-  postsPerPage: number
+  itemsPerPage: number
 }
 
 export default function Pagination({
-  postsPerPage,
+  itemsPerPage,
 }: PaginationProps) {
   const dispatch = useDispatch()
   const {
@@ -22,11 +22,12 @@ export default function Pagination({
       <nav className='block'></nav>
       <div>
         <nav
-          className='flex justify-center relative z-0 rounded-md shadow-sm -space-x-px'
+          className='flex justify-center relative z-0 rounded-md -space-x-px'
           aria-label='Pagination'
         >
           <a
-            onClick={() => {
+            onClick={(e) => {
+              e.preventDefault()
               goToPrevPage(1)
             }}
             href='#'
@@ -36,8 +37,9 @@ export default function Pagination({
           </a>
 
           <a
-            onClick={() => {
-              (currentPage) * postsPerPage < totalRepositories ? goToNextPage(1) : goToNextPage(0)
+            onClick={(e) => {
+              e.preventDefault();
+              (currentPage) * itemsPerPage < totalRepositories ? goToNextPage(1) : goToNextPage(0)
             }}
             href='#'
             className='relative inline-flex items-center px-2 py-2 rounded-r-md border border-gray-300 bg-white text-sm font-medium text-gray-500 hover:bg-gray-50'
@@ -48,9 +50,9 @@ export default function Pagination({
         <div>
           <p className='text-sm text-gray-700 py-2'>
             Showing
-            <span className='font-medium'> {(currentPage - 1) * postsPerPage} </span>
+            <span className='font-medium'> {(currentPage - 1) * itemsPerPage} </span>
             to
-            <span className='font-medium'> {currentPage * postsPerPage} </span>
+            <span className='font-medium'> {currentPage * itemsPerPage} </span>
             of
             <span className='font-medium'> {totalRepositories} </span>
             results

@@ -30,11 +30,13 @@ function App() {
         <div
           className='basis-full'
         >
-          <RepositoryBody />
+          <RepositoryBody
+            itemsPerPage={4}
+          />
           {
             totalRepositories !== 0 &&
             <Pagination
-              postsPerPage={10}
+              itemsPerPage={4}
             />
           }
         </div>

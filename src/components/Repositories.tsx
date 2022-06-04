@@ -6,11 +6,13 @@ import Repository from './Repository'
 import EmptyListNotification from './EmptyListNotification'
 
 export type RepositoriesProps = {
-  repositories: Array<any>
+  repositories: Array<any>,
+  itemsPerPage: number
 }
 
 const Repositories = ({
-  repositories
+  repositories,
+  itemsPerPage
 }: RepositoriesProps) => {
   const currentPage = useSelector((state: State) => state.page)
   const totalRepositories = useSelector((state: State) => state.totalRepositories)
@@ -31,7 +33,7 @@ const Repositories = ({
   console.log(repositories)
   return (
     <div
-      className='flex justify-center min-h-[530px]'
+      className='flex justify-center min-h-[800px]'
     >
       {
         totalRepositories === 0
@@ -43,7 +45,7 @@ const Repositories = ({
               .filter((repository) => (
                 repository.name.toLowerCase().includes(querySearch.toLowerCase())
               ))
-              .slice((currentPage - 1) * 10, currentPage * 10)
+              .slice((currentPage - 1) * itemsPerPage, currentPage * itemsPerPage)
               .map((repository) => (
                 <li
                   key={repository.id}
