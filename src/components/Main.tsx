@@ -68,7 +68,7 @@ function Main( { itemsPerPage } : MainPropTypes ) {
   if (result.loading) {
     return (
       <div
-        className='flex-col justify-center pt-4 px-1'
+        className='flex justify-center pt-4 px-1'
       >
         <LoadingNotification />
       </div>
@@ -78,7 +78,7 @@ function Main( { itemsPerPage } : MainPropTypes ) {
   if (result.error) {
     return (
       <div
-        className='flex-col justify-center pt-4 px-1'
+        className='flex justify-center pt-4 px-1'
       >
         <ErrorNotification />
       </div>

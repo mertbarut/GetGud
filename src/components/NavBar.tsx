@@ -5,7 +5,7 @@ export default function NavBar() {
   return (
     <div>
       <nav
-        className="flex items-center justify-center flex-wrap bg-gradient-to-r from-sky-600 to-emerald-500 px-6 py-2"
+        className="flex items-center justify-left flex-wrap bg-gradient-to-r from-sky-600 to-emerald-500 px-6 py-2"
       >
         <div
           className="flex items-center flex-shrink-0 text-white"

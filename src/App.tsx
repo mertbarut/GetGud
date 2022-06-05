@@ -5,7 +5,7 @@ import NavBar from './components/NavBar'
 import Pagination from './components/Pagination'
 import { State } from './state'
 import SideBar from './components/SideBar'
-import RepositoryBody from './components/Main'
+import Main from './components/Main'
 
 function App() {
   const totalRepositories = useSelector((state: State) => state.totalRepositories)
@@ -28,7 +28,7 @@ function App() {
         <div
           className='basis-full'
         >
-          <RepositoryBody
+          <Main
             itemsPerPage={4}
           />
           {

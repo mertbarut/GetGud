@@ -3,12 +3,12 @@ import React from 'react'
 const EmptyListNotification = () => {
   return (
     <div
-      className="grid grid-rows-2 justify-center h-32 bg-sky-100 border border-blue-400 text-blue-700 py-3 rounded relative m-6"
+      className="grid grid-rows-2 justify-center h-32 w-96 bg-sky-100 border border-blue-400 text-blue-700 p-3 rounded relative m-6"
       role="alert"
     >
-      <strong className="font-bold">Wah Wah Wah...</strong>
-      <pre> Repositories list is empty! </pre>
-      <pre> Try alternative filter parameters, or encourage this user to publish some repositories. </pre>
+      <p className="font-bold text-center">Wah Wah Waaaaah...</p>
+      <p> Repositories list is empty! </p>
+      <p> Try alternative filter parameters, or encourage this user to publish some repositories. </p>
     </div>
   )
 }

@@ -15,7 +15,7 @@ export default function SideBar() {
         <p className="my-4 text-sm text-gray-700">
           <input
             disabled={true}
-            placeholder="Type Username (disabled)"
+            placeholder="Find user... (disabled)"
             className='text-center border-2 rounded-md w-48'
           />
         </p>
@@ -71,8 +71,8 @@ export default function SideBar() {
       <ul className="relative px-1">
         <li className="relative">
           <a
-            className="flex items-center text-sm py-4 px-6 h-12 overflow-hidden text-gray-700 text-ellipsis whitespace-nowrap rounded hover:text-blue-600 hover:bg-blue-50 transition duration-300 ease-in-out"
-            href={`https://www.github.com/${user.login}`}
+            className="flex items-center text-sm py-4 px-6 h-12 overflow-hidden bg-blue-50 text-gray-700 text-ellipsis whitespace-nowrap rounded hover:text-blue-600 hover:bg-blue-100 transition duration-300 ease-in-out"
+            href={user.login !== 'Loading...' ? `https://www.github.com/${user.login}` : 'https://www.github.com/'}
             target='blank'
             data-mdb-ripple="true"
             data-mdb-ripple-color="primary"
