@@ -16,7 +16,7 @@ export interface MainPropTypes {
 
 const ALL_REPOSITORIES = gql`
 query {
-  user(login: "ionut1195") {
+  user(login: "mertbarut") {
     avatarUrl
     bio
     name

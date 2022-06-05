@@ -26,12 +26,15 @@ const Repositories = ({
   useEffect(() => {
     setTotalRepositories(repositories
       .filter((repository) => (
-        repository.name.toLowerCase().includes(searchQuery.toLowerCase())
+        repository.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        repository.languages.nodes.some((node) => node.name.toLowerCase().includes(searchQuery.toLowerCase()))
       ))
       .length)
   }, [searchQuery])
 
   console.log(repositories)
+
+
   return (
     <div
       className='flex justify-center min-h-[800px]'
@@ -44,7 +47,8 @@ const Repositories = ({
           <ul>
             {repositories
               .filter((repository) => (
-                repository.name.toLowerCase().includes(searchQuery.toLowerCase())
+                repository.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+                repository.languages.nodes.some((node) => node.name.toLowerCase().includes(searchQuery.toLowerCase()))
               ))
               .slice((currentPage - 1) * itemsPerPage, currentPage * itemsPerPage)
               .map((repository) => (
