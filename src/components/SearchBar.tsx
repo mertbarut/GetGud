@@ -1,14 +1,11 @@
-import React, { Dispatch } from 'react'
+import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import { actionCreators, State } from '../state'
-import { setSearchQuery } from '../state/action-creators'
 
 export default function SearchBar() {
   const dispatch = useDispatch()
   const searchQuery = useSelector((state: State) => state.searchQuery)
-
-  console.log(searchQuery)
 
   const {
     setSearchQuery,

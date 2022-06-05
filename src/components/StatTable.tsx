@@ -1,25 +1,11 @@
 import React from 'react'
-import { useSelector, useDispatch } from 'react-redux'
-import { actionCreators, State } from './../state'
-import { bindActionCreators } from '@reduxjs/toolkit'
-import Repository from './Repository'
+import { RepositoryNode } from './Repository'
 
 export type StatTableProps = {
-  repository: Repository,
-}
-
-type LanguageNode = {
-  name: string,
-  color: string
+  repository: RepositoryNode,
 }
 
 const StatTable = ({ repository }: StatTableProps ) => {
-  const dispatch = useDispatch()
-  const displayedAbsence = useSelector((state: State) => state.displayedAbsence)
-
-  const { setDisplayedAbsence } = bindActionCreators(actionCreators, dispatch)
-  //console.log(Object.keys(repository.languages.nodes[0]))
-  //console.log(repository.languages.nodes[0]['name'])
   return (
     <div
       data-testid="stattable"

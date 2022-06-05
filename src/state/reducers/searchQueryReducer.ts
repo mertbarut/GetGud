@@ -1,5 +1,5 @@
 import { ActionType } from '../action-types'
-import { SearchQueryChangeAction, totalRepositoriesChangeAction } from '../actions'
+import { SearchQueryChangeAction } from '../actions'
 
 const initialSearchQuery = ''
 

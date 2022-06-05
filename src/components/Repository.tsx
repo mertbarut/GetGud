@@ -1,24 +1,25 @@
 import React from 'react'
 import StatTable from './StatTable'
-import IRepositoryData from '../types/absence.type'
-import IMemberData from '../types/member.type'
-import { Dictionary } from '@reduxjs/toolkit'
 
-type Language = {
+type LanguageNode = {
   name: string,
   color: string
 }
 
-type Repository = {
-  description: string,
+type Language = {
+  nodes: Array<LanguageNode>
+}
+
+export type RepositoryNode = {
+  description: string | null,
   id: string,
   name: string,
   url: string,
-  languages: any
+  languages: Language
 }
 
 export type RepositoryProps = {
-  repository: Repository,
+  repository: RepositoryNode,
 }
 
 const Repository = ({ repository }: RepositoryProps) => {

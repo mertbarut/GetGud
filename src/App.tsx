@@ -5,9 +5,7 @@ import NavBar from './components/NavBar'
 import Pagination from './components/Pagination'
 import { State } from './state'
 import SideBar from './components/SideBar'
-import Repositories from './components/Repositories'
 import RepositoryBody from './components/Main'
-import { useState } from 'react'
 
 function App() {
   const totalRepositories = useSelector((state: State) => state.totalRepositories)

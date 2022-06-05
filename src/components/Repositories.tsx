@@ -2,11 +2,11 @@ import { bindActionCreators } from '@reduxjs/toolkit'
 import { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { actionCreators, State } from '../state'
-import Repository from './Repository'
+import Repository, { RepositoryNode } from './Repository'
 import EmptyListNotification from './EmptyListNotification'
 
 export type RepositoriesProps = {
-  repositories: Array<any>,
+  repositories: Array<RepositoryNode>,
   itemsPerPage: number
 }
 
@@ -20,8 +20,7 @@ const Repositories = ({
 
   const dispatch = useDispatch()
   const {
-    setTotalRepositories,
-    goToFirstPage
+    setTotalRepositories
   } = bindActionCreators(actionCreators, dispatch)
 
   useEffect(() => {
