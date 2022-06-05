@@ -1,6 +1,9 @@
 import React from 'react'
 import logo from '../img/github.png'
 
+/**
+ * Renders the Navigation bar component on screen.
+ */
 export default function NavBar() {
   return (
     <div>

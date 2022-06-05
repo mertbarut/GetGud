@@ -3,18 +3,27 @@ import { useDispatch, useSelector } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import { actionCreators, State } from '../state'
 
-export default function SearchBar() {
+/**
+ * Renders a search bar on screen, which updates the redux state
+ * responsible for filtering repositories by name or programming language
+ * upon user input.
+ * Needs following redux state(s) to be defined:
+ * - searchQuery
+ * Needs following redux action(s) to be defined:
+ * - setSearchQuery
+ * - goToFirstPage
+ */
+function SearchBar() {
   const dispatch = useDispatch()
   const searchQuery = useSelector((state: State) => state.searchQuery)
-
   const {
     setSearchQuery,
     goToFirstPage
   } = bindActionCreators(actionCreators, dispatch)
 
-  const handleChangeSearchQuery = (event: React.ChangeEvent<HTMLInputElement>) => {
-    event.preventDefault()
-    setSearchQuery(event.target.value)
+  const handleChangeSearchQuery = (e: React.ChangeEvent<HTMLInputElement>) => {
+    e.preventDefault()
+    setSearchQuery(e.target.value)
     goToFirstPage()
   }
 
@@ -41,3 +50,5 @@ export default function SearchBar() {
     </div>
   )
 }
+
+export default SearchBar

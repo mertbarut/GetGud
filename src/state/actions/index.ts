@@ -1,6 +1,8 @@
 import User from '../../types/user.type'
 import { ActionType } from '../action-types'
 
+/* Pagination */
+
 interface NextPageAction {
   type: ActionType.NEXT
   payload: number
@@ -15,15 +17,7 @@ interface FirstPageAction {
   type: ActionType.FIRST
 }
 
-interface SetDisplayedAbsenceAction {
-  type: ActionType.SETABSENCE
-  payload: number
-}
-
-interface DefaultDisplayedAbsenceAction {
-  type: ActionType.SETDEFAULT
-  payload: number
-}
+/* Repositories */
 
 interface SetTotalRepositoriesAction {
   type: ActionType.SET_TOTAL_REPOSITORIES
@@ -41,8 +35,6 @@ interface setSearchQuery {
 }
 
 export type PageChangeAction = NextPageAction | PreviousPageAction | FirstPageAction
-
-export type DisplayedAbsenceChangeAction = SetDisplayedAbsenceAction | DefaultDisplayedAbsenceAction
 
 export type totalRepositoriesChangeAction = SetTotalRepositoriesAction
 

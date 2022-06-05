@@ -5,6 +5,12 @@ export type StatTableProps = {
   repository: RepositoryNode,
 }
 
+/**
+ * Renders the stats of the repository in a grid view
+ * using the repository given as parameter.
+ *
+ * @param {Array<RepositoryNode>} repository Individual repository node in the repositories array returned by GitHub.
+ */
 const StatTable = ({ repository }: StatTableProps ) => {
   return (
     <div
@@ -30,8 +36,8 @@ const StatTable = ({ repository }: StatTableProps ) => {
       <div
         className="text-sm py-1 px-1 h-6 self-center lg:text-md font-light text-gray-900 text-center row-start-3 col-start-1"
       >
-      {
-        repository.languages.nodes.length !== 0 &&
+        {
+          repository.languages.nodes.length !== 0 &&
         <>
           <span
             className='rounded-lg p-1'
@@ -40,13 +46,13 @@ const StatTable = ({ repository }: StatTableProps ) => {
             {repository.languages.nodes[0].name}
           </span>
         </>
-      }
+        }
       </div>
       <div
         className="text-sm py-1 px-1 h-6 self-center lg:text-md font-light text-gray-900 text-center row-start-3 col-start-2"
       >
-      {
-        repository.languages.nodes.length > 1 &&
+        {
+          repository.languages.nodes.length > 1 &&
           <>
             <span
               className='rounded-lg p-1'
@@ -55,13 +61,13 @@ const StatTable = ({ repository }: StatTableProps ) => {
               {repository.languages.nodes[1].name}
             </span>
           </>
-      }
+        }
       </div>
       <div
         className="text-sm py-1 px-1 h-6 self-center lg:text-md font-light text-gray-900 text-center row-start-4 col-start-1 lg:row-start-3 lg:col-start-3"
       >
-      {
-        repository.languages.nodes.length > 2 &&
+        {
+          repository.languages.nodes.length > 2 &&
         <>
           <span
             className='rounded-lg p-1'
@@ -70,13 +76,13 @@ const StatTable = ({ repository }: StatTableProps ) => {
             {repository.languages.nodes[2].name}
           </span>
         </>
-      }
+        }
       </div>
       <div
         className="text-sm py-1 px-1 h-6 self-center lg:text-md font-light text-gray-900 text-center row-start-4 col-start-2 lg:row-start-3 lg:col-start-4"
       >
-      {
-        repository.languages.nodes.length > 3 &&
+        {
+          repository.languages.nodes.length > 3 &&
         <>
           <span
             className='rounded-lg p-1'
@@ -85,7 +91,7 @@ const StatTable = ({ repository }: StatTableProps ) => {
             {repository.languages.nodes[3].name}
           </span>
         </>
-      }
+        }
       </div>
       <div
         className="flex text-sm self-center justify-center lg:text-lg font-normal text-gray-900 text-center col-span-2 lg:col-span-4 col-start-1 row-start-5 lg:row-start-4"

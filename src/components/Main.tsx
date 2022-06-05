@@ -7,11 +7,11 @@ import { useDispatch, useSelector } from 'react-redux'
 import { actionCreators, State } from '../state'
 import { bindActionCreators } from 'redux'
 import SearchBar from './SearchBar'
+import placeholderAvatar from '../img/anon.png'
+import { RepositoryNode } from './Repository'
 
-import avatar from '../img/anon.png'
-
-export interface MainPropTypes {
-  itemsPerPage: number
+interface MainPropTypes {
+  repositoriesPerPage: number
 }
 
 const ALL_REPOSITORIES = gql`
@@ -45,10 +45,20 @@ query {
 }
 `
 
-function Main( { itemsPerPage } : MainPropTypes ) {
+/**
+ * Fetches the data from GitHub using GraphQL,
+ * and renders the main body component on screen.
+ *
+ * Needs following redux state(s) to be defined:
+ * - totalRepositories
+ *
+ * Needs following redux action(s) to be defined:
+ * - setDisplayedUser
+ * @param {number} repositoriesPerPage Number of repositories to display per page.
+ */
+function Main( { repositoriesPerPage } : MainPropTypes ) {
   const result = useQuery(ALL_REPOSITORIES)
   const dispatch = useDispatch()
-  console.log(result)
   const totalRepositories = useSelector((state: State) => state.totalRepositories)
   const {
     setDisplayedUser
@@ -56,7 +66,7 @@ function Main( { itemsPerPage } : MainPropTypes ) {
 
   useEffect(() => {
     setDisplayedUser({
-      avatarUrl: !result.loading && !result.error ? result.data.user.avatarUrl : avatar,
+      avatarUrl: !result.loading && !result.error ? result.data.user.avatarUrl : placeholderAvatar,
       name: !result.loading && !result.error ? result.data.user.name : 'Loading...',
       login: !result.loading && !result.error ? result.data.user.login : 'Loading...',
       bio: !result.loading && !result.error ? result.data.user.bio : 'Loading...',
@@ -85,10 +95,7 @@ function Main( { itemsPerPage } : MainPropTypes ) {
     )
   }
 
-  const repositories = result.data.user.repositories.nodes
-
-  //console.log(user)
-  //console.log(repositories)
+  const repositories: Array<RepositoryNode> = result.data.user.repositories.nodes
 
   return (
     <div
@@ -97,7 +104,7 @@ function Main( { itemsPerPage } : MainPropTypes ) {
       <SearchBar />
       <Repositories
         repositories={repositories}
-        itemsPerPage={itemsPerPage}
+        repositoriesPerPage={repositoriesPerPage}
       />
     </div>
   )

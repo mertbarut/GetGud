@@ -7,15 +7,23 @@ import { State } from './state'
 import SideBar from './components/SideBar'
 import Main from './components/Main'
 
-function App() {
+export interface AppPropTypes {
+  repositoriesPerPage: number
+}
+
+/**
+ * Renders the Navigation bar, Side bar, and,
+ * the main body, and Pagination components on screen.
+ *
+ * Needs following redux state(s) to be defined:
+ * - totalRepositories
+ * @param {number} repositoriesPerPage Number of repositories to display per page.
+ */
+function App( { repositoriesPerPage } : AppPropTypes ) {
   const totalRepositories = useSelector((state: State) => state.totalRepositories)
 
-  //console.log(process.env.REACT_APP_TOKEN)
-
   return (
-    <div
-      className="w-screen"
-    >
+    <div>
       <NavBar />
       <div
         className='flex flex-col md:flex-row'
@@ -29,12 +37,15 @@ function App() {
           className='basis-full'
         >
           <Main
-            itemsPerPage={4}
+            repositoriesPerPage={repositoriesPerPage}
           />
+          {/* Pagination is disabled when there is no repository
+            * to display.
+            */}
           {
             totalRepositories !== 0 &&
             <Pagination
-              itemsPerPage={4}
+              repositoriesPerPage={repositoriesPerPage}
             />
           }
         </div>

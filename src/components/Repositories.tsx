@@ -5,19 +5,31 @@ import { actionCreators, State } from '../state'
 import Repository, { RepositoryNode } from './Repository'
 import EmptyListNotification from './EmptyListNotification'
 
-export type RepositoriesProps = {
+interface RepositoriesProps {
   repositories: Array<RepositoryNode>,
-  itemsPerPage: number
+  repositoriesPerPage: number
 }
 
+/**
+ * Renders the array of repository nodes given as parameter.
+ *
+ * Needs following redux state(s) to be defined:
+ * - page
+ * - totalRepositories
+ * - searchQuery
+ *
+ * Needs following redux action(s) to be defined:
+ * - setTotalRepositories
+ * @param {Array<RepositoryNode>} repositories Array that contains the repository nodes returned by GitHub.
+ * @param {number} repositoriesPerPage Number of repositories to display per page.
+ */
 const Repositories = ({
   repositories,
-  itemsPerPage
+  repositoriesPerPage
 }: RepositoriesProps) => {
   const currentPage = useSelector((state: State) => state.page)
   const totalRepositories = useSelector((state: State) => state.totalRepositories)
   const searchQuery = useSelector((state: State) => state.searchQuery)
-
   const dispatch = useDispatch()
   const {
     setTotalRepositories
@@ -32,12 +44,9 @@ const Repositories = ({
       .length)
   }, [searchQuery])
 
-  console.log(repositories)
-
-
   return (
     <div
-      className='flex justify-center min-h-[800px]'
+      className='flex justify-center min-h-[700px]'
     >
       {
         totalRepositories === 0
@@ -50,7 +59,7 @@ const Repositories = ({
                 repository.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
                 repository.languages.nodes.some((node) => node.name.toLowerCase().includes(searchQuery.toLowerCase()))
               ))
-              .slice((currentPage - 1) * itemsPerPage, currentPage * itemsPerPage)
+              .slice((currentPage - 1) * repositoriesPerPage, currentPage * repositoriesPerPage)
               .map((repository) => (
                 <li
                   key={repository.id}

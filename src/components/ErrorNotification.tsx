@@ -1,5 +1,9 @@
 import React from 'react'
 
+/**
+ * Renders a notification that displays a error message
+ * about not being able to connect to GitHub API.
+ */
 const ErrorNotification = () => {
   return (
     <div

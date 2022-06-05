@@ -1,5 +1,8 @@
 import React from 'react'
 
+/**
+ * Renders a notification that displays a loading message.
+ */
 const LoadingNotification = () => {
   return (
     <div>

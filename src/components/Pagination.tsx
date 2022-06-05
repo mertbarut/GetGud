@@ -2,13 +2,24 @@ import { useDispatch, useSelector } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import { actionCreators, State } from '../state'
 
-type PaginationProps = {
-  itemsPerPage: number
+interface PaginationProps {
+  repositoriesPerPage: number
 }
 
-export default function Pagination({
-  itemsPerPage,
-}: PaginationProps) {
+/**
+ * Handles the logic of updating the redux states
+ * after the user clicks on the buttons for changing pages.
+ *
+ * Needs following redux state(s) to be defined:
+ * - page
+ * - totalRepositories
+ *
+ * Needs following redux action(s) to be defined:
+ * - goToNextPage
+ * - goToPrevPage
+ * @param {number} repositoriesPerPage Number of repositories to display per page.
+ */
+function Pagination({ repositoriesPerPage }: PaginationProps) {
   const dispatch = useDispatch()
   const {
     goToNextPage,
@@ -35,11 +46,10 @@ export default function Pagination({
           >
             <span>Previous</span>
           </a>
-
           <a
             onClick={(e) => {
               e.preventDefault();
-              (currentPage) * itemsPerPage < totalRepositories ? goToNextPage(1) : goToNextPage(0)
+              (currentPage) * repositoriesPerPage < totalRepositories ? goToNextPage(1) : goToNextPage(0)
             }}
             href='#'
             className='relative inline-flex items-center px-2 py-2 rounded-r-md border border-gray-300 bg-white text-sm font-medium text-gray-500 hover:bg-gray-50'
@@ -50,9 +60,9 @@ export default function Pagination({
         <div>
           <p className='text-sm text-gray-700 py-2'>
             Showing
-            <span className='font-medium'> {(currentPage - 1) * itemsPerPage} </span>
+            <span className='font-medium'> {(currentPage - 1) * repositoriesPerPage} </span>
             to
-            <span className='font-medium'> {currentPage * itemsPerPage} </span>
+            <span className='font-medium'> {currentPage * repositoriesPerPage} </span>
             of
             <span className='font-medium'> {totalRepositories} </span>
             results
@@ -62,3 +72,5 @@ export default function Pagination({
     </div>
   )
 }
+
+export default Pagination

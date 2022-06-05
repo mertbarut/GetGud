@@ -1,5 +1,9 @@
 import React from 'react'
 
+/**
+ * Renders a notification that informs the user about
+ * list being empty.
+ */
 const EmptyListNotification = () => {
   return (
     <div
