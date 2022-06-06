@@ -15,32 +15,37 @@ const StatTable = ({ repository }: StatTableProps ) => {
   return (
     <div
       data-testid="stattable"
-      className="min-w-[320px] md:min-w-[420px] lg:min-w-[640px] grid grid-rows-5 grid-cols-2 lg:grid-rows-4 lg:grid-cols-4 grid-flow-col shrink-0"
+      className="w-[320px] md:w-[420px] lg:w-[640px] grid grid-rows-6 grid-cols-2 shrink-1 lg:grid-rows-4 lg:grid-cols-4 grid-flow-col"
     >
       <div
-        className="py-2 px-3 self-center text-md lg:text-md font-semibold text-gray-900 text-left col-span-2 row-start-1 col-start-1"
+        className="py-2 px-3 self-center text-md lg:text-md font-semibold break-normal text-gray-900 text-left col-span-2 row-start-1 col-start-1"
       >
         {repository.name && repository.name.substring(0, 32)}
         {repository.name && repository.name.length >= 32 && '...'}
       </div>
       <div
-        className="text-xs py-2 px-3 lg:text-md font-normal text-gray-900 text-left col-span-2 row-start-2 col-start-1"
+        className="inline-grid text-xs py-2 px-3 lg:text-md font-normal text-gray-900 text-left col-span-4 row-span-2 row-start-2 col-start-1"
       >
-        {repository.description && repository.description.substring(0, 48)}
-        {repository.description && repository.description.length >= 48 && '...'}
-        {!repository.description &&
-          <em>
-            No description is provided.
-          </em>}
+        <p
+          className='inline-grid'
+        >
+          {repository.description && repository.description.substring(0, 100)}
+          {repository.description && repository.description.length >= 100 && '...'}
+          {!repository.description &&
+            <em>
+              No description is provided.
+            </em>
+          }
+        </p>
       </div>
       <div
-        className="text-sm py-1 px-1 h-6 self-center lg:text-md font-light text-gray-900 text-center row-start-3 col-start-1"
+        className="text-sm py-1 px-1 self-center lg:text-md font-light text-gray-900 text-center row-start-4 col-start-1 lg:row-start-3"
       >
         {
           repository.languages.nodes.length !== 0 &&
         <>
           <span
-            className='rounded-lg p-1'
+            className='rounded-lg p-0.5 px-2'
             style={{ backgroundColor: `${repository.languages.nodes[0].color}`, color: 'rgb(255 255 255)' }}
           >
             {repository.languages.nodes[0].name}
@@ -49,13 +54,13 @@ const StatTable = ({ repository }: StatTableProps ) => {
         }
       </div>
       <div
-        className="text-sm py-1 px-1 h-6 self-center lg:text-md font-light text-gray-900 text-center row-start-3 col-start-2"
+        className="text-sm py-1 px-1 self-center lg:text-md font-light text-gray-900 text-center row-start-4 col-start-2 lg:row-start-3"
       >
         {
           repository.languages.nodes.length > 1 &&
           <>
             <span
-              className='rounded-lg p-1'
+              className='rounded-lg p-0.5 px-2'
               style={{ backgroundColor: `${repository.languages.nodes[1].color}`, color: 'rgb(255 255 255)' }}
             >
               {repository.languages.nodes[1].name}
@@ -64,13 +69,13 @@ const StatTable = ({ repository }: StatTableProps ) => {
         }
       </div>
       <div
-        className="text-sm py-1 px-1 h-6 self-center lg:text-md font-light text-gray-900 text-center row-start-4 col-start-1 lg:row-start-3 lg:col-start-3"
+        className="text-sm py-1 px-1 self-center lg:text-md font-light text-gray-900 text-center row-start-5 col-start-1 lg:row-start-3 lg:col-start-3"
       >
         {
           repository.languages.nodes.length > 2 &&
         <>
           <span
-            className='rounded-lg p-1'
+            className='rounded-lg p-0.5 px-2'
             style={{ backgroundColor: `${repository.languages.nodes[2].color}`, color: 'rgb(255 255 255)' }}
           >
             {repository.languages.nodes[2].name}
@@ -79,13 +84,13 @@ const StatTable = ({ repository }: StatTableProps ) => {
         }
       </div>
       <div
-        className="text-sm py-1 px-1 h-6 self-center lg:text-md font-light text-gray-900 text-center row-start-4 col-start-2 lg:row-start-3 lg:col-start-4"
+        className="text-sm py-1 px-1 self-center lg:text-md font-light text-gray-900 text-center row-start-5 col-start-2 lg:row-start-3 lg:col-start-4"
       >
         {
           repository.languages.nodes.length > 3 &&
         <>
           <span
-            className='rounded-lg p-1'
+            className='rounded-lg p-0.5 px-2'
             style={{ backgroundColor: `${repository.languages.nodes[3].color}`, color: 'rgb(255 255 255)' }}
           >
             {repository.languages.nodes[3].name}
@@ -94,10 +99,10 @@ const StatTable = ({ repository }: StatTableProps ) => {
         }
       </div>
       <div
-        className="flex text-sm self-center justify-center lg:text-lg font-normal text-gray-900 text-center col-span-2 lg:col-span-4 col-start-1 row-start-5 lg:row-start-4"
+        className="flex text-sm self-center justify-center lg:text-lg font-normal text-gray-900 text-center col-span-2 lg:col-span-4 col-start-1 row-start-6 lg:row-start-4"
       >
         <a
-          className="flex items-center text-sm py-2 px-3 h-8 overflow-hidden bg-blue-50 text-gray-700 text-ellipsis whitespace-nowrap rounded hover:text-blue-600 hover:bg-blue-100 transition duration-300 ease-in-out"
+          className="flex items-center text-sm py-1 px-2 h-6 overflow-hidden bg-blue-50 text-gray-700 text-ellipsis whitespace-nowrap rounded hover:text-blue-600 hover:bg-blue-100 transition duration-300 ease-in-out"
           href={repository.url}
           target='blank'
           data-mdb-ripple="true"
