@@ -2,7 +2,7 @@
 
 ### Summary
 
-[GetGud](https://getgud-42.herokuapp.com/) is a generic GitHub Repository Viewer I created to showcase my repositories using GitHub's publicly available API. It is written in TypeScript with React as the frontend framework, and it uses Redux for state management. Displayed repositories are fetched with [GraphQL](https://graphql.org/) and [GitHub's API v4](https://docs.github.com/en/graphql). [TailwindCSS](https://tailwindcss.com/) is used for the generating css elements and making the components responsive to screen width. [Jest](https://jestjs.io/) is used for unit testing the components.
+[GetGud](https://getgud-42.herokuapp.com/) is a generic GitHub Repository Viewer I created to showcase my repositories using GitHub's publicly available API. It is written in TypeScript with React as the frontend framework, and it uses Redux for state management. Displayed repositories are fetched with [GraphQL](https://graphql.org/) and [GitHub's API v4](https://docs.github.com/en/graphql). [TailwindCSS](https://tailwindcss.com/) is used for the generating the CSS elements and making the components responsive to screen width. [Jest](https://jestjs.io/) is used for the unit tests.
 
 ### Getting Started
 
@@ -21,13 +21,19 @@ Install the dependencies:
 npm install
 ```
 
+Create a .env file with the authentication token obtained from GitHub:
+
+```
+touch .env && cat "REACT_APP_TOKEN=your_token_here"
+```
+
 Run GetGud from the root directory:
 
 ```
 npm start
 ```
 
-Launch the tests with the following command:
+You may launch the tests with the following command:
 
 ```
 npm test
