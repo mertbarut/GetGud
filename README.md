@@ -11,8 +11,7 @@ GetGud's last version is [hosted on Heroku](https://getgud-42.herokuapp.com/). Y
 Clone the repository on your local machine and cd into it:
 
 ```
-git clone git@github.com:mertbarut/space-mission.git
-cd space-mission
+git clone git@github.com:mertbarut/GetGud.git && cd GetGud
 ```
 
 Install the dependencies:
