@@ -7,6 +7,7 @@ import React from 'react'
 const ErrorNotification = () => {
   return (
     <div
+      data-testid='notification-error'
       className="grid grid-rows-2 justify-center h-32 w-96 bg-rose-100 border border-red-400 text-red-700 p-3 rounded relative m-6"
       role="alert"
     >

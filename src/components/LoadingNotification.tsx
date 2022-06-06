@@ -5,7 +5,9 @@ import React from 'react'
  */
 const LoadingNotification = () => {
   return (
-    <div>
+    <div
+      data-testid='notification-loading'
+    >
       <button
         disabled type="button" style={{ backgroundColor: 'rgb(37 99 235)', color: 'rgb(255 255 255)' }}
         className="focus:ring-4 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 inline-flex items-center">

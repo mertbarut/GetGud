@@ -37,7 +37,6 @@ root.render(
         <App repositoriesPerPage={4} />
       </Provider>
     </ApolloProvider>
-
   </React.StrictMode>
 )
 

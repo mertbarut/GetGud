@@ -18,12 +18,14 @@ const StatTable = ({ repository }: StatTableProps ) => {
       className="w-[320px] md:w-[420px] lg:w-[640px] grid grid-rows-6 grid-cols-2 shrink-1 lg:grid-rows-4 lg:grid-cols-4 grid-flow-col"
     >
       <div
+        data-testid={`stattable-repository-name-${repository.id}`}
         className="py-2 px-3 self-center text-md lg:text-md font-semibold break-normal text-gray-900 text-left col-span-2 row-start-1 col-start-1"
       >
         {repository.name && repository.name.substring(0, 32)}
         {repository.name && repository.name.length >= 32 && '...'}
       </div>
       <div
+        data-testid={`stattable-repository-description-${repository.id}`}
         className="inline-grid text-xs py-2 px-3 lg:text-md font-normal text-gray-900 text-left col-span-4 row-span-2 row-start-2 col-start-1"
       >
         <p
@@ -39,6 +41,7 @@ const StatTable = ({ repository }: StatTableProps ) => {
         </p>
       </div>
       <div
+        data-testid={`stattable-repository-language1-${repository.id}`}
         className="text-sm py-1 px-1 self-center lg:text-md font-light text-gray-900 text-center row-start-4 col-start-1 lg:row-start-3"
       >
         {
@@ -54,6 +57,7 @@ const StatTable = ({ repository }: StatTableProps ) => {
         }
       </div>
       <div
+        data-testid={`stattable-repository-language2-${repository.id}`}
         className="text-sm py-1 px-1 self-center lg:text-md font-light text-gray-900 text-center row-start-4 col-start-2 lg:row-start-3"
       >
         {
@@ -69,6 +73,7 @@ const StatTable = ({ repository }: StatTableProps ) => {
         }
       </div>
       <div
+        data-testid={`stattable-repository-language3-${repository.id}`}
         className="text-sm py-1 px-1 self-center lg:text-md font-light text-gray-900 text-center row-start-5 col-start-1 lg:row-start-3 lg:col-start-3"
       >
         {
@@ -84,6 +89,7 @@ const StatTable = ({ repository }: StatTableProps ) => {
         }
       </div>
       <div
+        data-testid={`stattable-repository-language4-${repository.id}`}
         className="text-sm py-1 px-1 self-center lg:text-md font-light text-gray-900 text-center row-start-5 col-start-2 lg:row-start-3 lg:col-start-4"
       >
         {
@@ -99,6 +105,7 @@ const StatTable = ({ repository }: StatTableProps ) => {
         }
       </div>
       <div
+        data-testid={`stattable-repository-link-${repository.id}`}
         className="flex text-sm self-center justify-center lg:text-lg font-normal text-gray-900 text-center col-span-2 lg:col-span-4 col-start-1 row-start-6 lg:row-start-4"
       >
         <a

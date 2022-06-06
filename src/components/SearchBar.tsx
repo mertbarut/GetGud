@@ -29,6 +29,7 @@ function SearchBar() {
 
   return (
     <div
+      data-testid='search-bar'
       className="p-2"
     >
       <div

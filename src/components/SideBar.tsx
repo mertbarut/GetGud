@@ -13,11 +13,13 @@ export default function SideBar() {
 
   return (
     <div
+      data-testid='side-bar'
       className="w-full md:w-64 md:h-screen shadow-md bg-white absolute"
     >
       <div className="text-center w-full">
         <p className="my-4 text-sm text-gray-700">
           <input
+            data-testid='side-bar-input'
             disabled={true}
             placeholder="Find user... (disabled)"
             className='text-center border-2 rounded-md w-48'
@@ -33,6 +35,7 @@ export default function SideBar() {
         >
           <a>
             <div
+              data-testid='side-bar-avatar'
               className="shrink-0"
             >
               <img
@@ -46,11 +49,13 @@ export default function SideBar() {
             className="grow my-2 ml-2 md:my-4"
           >
             <p
+              data-testid='side-bar-user-fullname'
               className="text-sm md:text-lg font-semibold text-blue-600"
             >
               {user.name}
             </p>
             <p
+              data-testid='side-bar-user-login'
               className="text-xs md:text-md font-light text-sky-500"
             >
               {user.login}
@@ -58,11 +63,13 @@ export default function SideBar() {
           </div>
         </div>
         <p
+          data-testid='side-bar-user-bio'
           className="text-sm text-center md:text-md font-md text-slate-900 my-4"
         >
           {user.bio}
         </p>
         <p
+          data-testid='side-bar-user-socials'
           className="flex flex-row items-center justify-center text-sm md:text-md font-md text-slate-900 my-4"
         >
           <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 mr-2 md:mr-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
@@ -75,6 +82,7 @@ export default function SideBar() {
       <ul className="relative px-1">
         <li className="relative">
           <a
+            data-testid='side-bar-user-github-profile'
             className="flex items-center text-sm py-4 px-6 h-12 overflow-hidden bg-blue-50 text-gray-700 text-ellipsis whitespace-nowrap rounded hover:text-blue-600 hover:bg-blue-100 transition duration-300 ease-in-out"
             href={user.login !== 'Loading...' ? `https://www.github.com/${user.login}` : 'https://www.github.com/'}
             target='blank'

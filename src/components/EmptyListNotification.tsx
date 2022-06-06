@@ -7,6 +7,7 @@ import React from 'react'
 const EmptyListNotification = () => {
   return (
     <div
+      data-testid='notification-empty-list'
       className="grid grid-rows-2 justify-center h-32 w-96 bg-sky-100 border border-blue-400 text-blue-700 p-3 rounded relative m-6"
       role="alert"
     >

@@ -8,6 +8,7 @@ export default function NavBar() {
   return (
     <div>
       <nav
+        data-testid='navbar'
         className="flex items-center justify-left flex-wrap bg-gradient-to-r from-sky-600 to-emerald-500 px-6 py-2"
       >
         <div
