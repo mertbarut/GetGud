@@ -1,4 +1,4 @@
-# GetGud: A GitHub Repository Viewer built with [React.js](https://reactjs.org) and TypeScript
+# GetGud: A GitHub Repository Viewer built with [React](https://reactjs.org) and TypeScript
 
 ### Summary
 
@@ -24,7 +24,7 @@ npm install
 Create a .env file with the authentication token obtained from GitHub:
 
 ```
-touch .env && cat "REACT_APP_TOKEN=your_token_here"
+echo -n "REACT_APP_TOKEN=your_token_here" > .env
 ```
 
 Run GetGud from the root directory:
