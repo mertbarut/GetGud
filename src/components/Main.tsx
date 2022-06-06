@@ -14,7 +14,7 @@ interface MainPropTypes {
   repositoriesPerPage: number
 }
 
-const ALL_REPOSITORIES = gql`
+export const ALL_REPOSITORIES = gql`
 query {
   user(login: "mertbarut") {
     avatarUrl
@@ -99,6 +99,7 @@ function Main( { repositoriesPerPage } : MainPropTypes ) {
 
   return (
     <div
+      data-testid='repositories'
       className='flex-col justify-center pt-4 px-1'
     >
       <SearchBar />

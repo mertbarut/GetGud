@@ -62,7 +62,7 @@ function Pagination({ repositoriesPerPage }: PaginationProps) {
             Showing
             <span className='font-medium'> {(currentPage - 1) * repositoriesPerPage} </span>
             to
-            <span className='font-medium'> {currentPage * repositoriesPerPage} </span>
+            <span className='font-medium'> {totalRepositories < currentPage * repositoriesPerPage ? totalRepositories: currentPage * repositoriesPerPage} </span>
             of
             <span className='font-medium'> {totalRepositories} </span>
             results

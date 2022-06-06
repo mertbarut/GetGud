@@ -2,7 +2,36 @@
 
 ### Summary
 
-[GetGud](https://test.herokuapp.com/) is a live database frontend app written in TypeScript using React. It uses Redux for state management. Displayed repositories are fetched with [GraphQL](https://graphql.org/) and [GitHub's API v4](https://docs.github.com/en/graphql). [TailwindCSS](https://tailwindcss.com/) is used for the generating css elements and making the components responsive to screen width.
+[GetGud](https://getgud-42.herokuapp.com/) is a generic GitHub Repository Viewer I created to showcase my repositories using GitHub's publicly available API. It is written in TypeScript with React as the frontend framework, and it uses Redux for state management. Displayed repositories are fetched with [GraphQL](https://graphql.org/) and [GitHub's API v4](https://docs.github.com/en/graphql). [TailwindCSS](https://tailwindcss.com/) is used for the generating css elements and making the components responsive to screen width. [Jest](https://jestjs.io/) is used for unit testing the components.
+
+### Getting Started
+
+GetGud's last version is [hosted on Heroku](https://getgud-42.herokuapp.com/). You may also run it locally by following the instructions below:
+
+Clone the repository on your local machine and cd into it:
+
+```
+git clone git@github.com:mertbarut/space-mission.git
+cd space-mission
+```
+
+Install the dependencies:
+
+```
+npm install
+```
+
+Run GetGud from the root directory:
+
+```
+npm start
+```
+
+Launch the tests with the following command:
+
+```
+npm test
+```
 
 ### Dependencies
 
@@ -56,8 +85,8 @@ None
 
 ### Coming Soon
 
-- [ ] Unit and E2E tests
-- [ ] Functional input field for displaying anyone's repositories
+- [ ] More Unit and E2E tests!
+- [ ] Functional input field for being able to display user's repositories
 - [ ] Display more than 100 repositories
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
