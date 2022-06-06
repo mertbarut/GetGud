@@ -7,6 +7,8 @@
 ### Dependencies
 
 Production:
+| Package | Version |
+| :--- | :---: |
 | @apollo/client | ^3.6.6 |
 | @reduxjs/toolkit | ^1.8.1 |
 | @testing-library/jest-dom | ^5.16.4 |
@@ -28,6 +30,8 @@ Production:
 | typescript | ^4.6.4 |
 
 Development:
+| Package | Version |
+| :--- | :---: |
 | autoprefixer | ^10.4.7 |
 | postcss | ^8.4.14 |
 | tailwindcss | ^3.0.24 |

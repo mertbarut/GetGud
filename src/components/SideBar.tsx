@@ -50,13 +50,13 @@ export default function SideBar() {
           >
             <p
               data-testid='side-bar-user-fullname'
-              className="text-sm md:text-lg font-semibold text-blue-600"
+              className="pl-4 md:pl-0 text-lg font-semibold text-blue-600"
             >
               {user.name}
             </p>
             <p
               data-testid='side-bar-user-login'
-              className="text-xs md:text-md font-light text-sky-500"
+              className="pl-4 md:pl-0 text-md font-light text-sky-500"
             >
               {user.login}
             </p>
